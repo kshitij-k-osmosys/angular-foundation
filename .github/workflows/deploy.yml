@@ -27,11 +27,11 @@ jobs:
       - name: Angular Deploy gh-pages Actions
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
         with:
-          github_access_token: ${{ secrets.GH_token }}
-          build_configuration: production
-          base_href: /sample-angular-app/
+          github_access_token: ${{ secrets.GH_token }} # see the Configuration section for how you can create secrets
+          build_configuration: production # The build environment for the app. please look configurations in your angular.json
+          base_href: /sample-angular-app/ # make sure this corresponds to https://<your_username>.github.io/<base_href>/
           deploy_branch: gh-pages # The branch the action should deploy to.
-          angular_dist_build_folder: ./dist/sample-angular-app
+          angular_dist_build_folder: dist/sample-angular-app # The folder where your project is supposed to be after running ng build by the action.
 
 permissions:
-  contents: write
+  contents: write # Allow write permission to GITHUB_TOKEN to commit to deploy branch.
